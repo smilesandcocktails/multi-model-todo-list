@@ -1,0 +1,32 @@
+<div class="container">
+  <form action="/todogroups/new" method="POST">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Title" name="name">
+    </div>
+    <div class="form-group">
+      <label for="color">Color</label>
+      <textarea class="form-control" id="color" rows="3" placeholder="Description" name="color"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for=""> Todo Item List (Choose at least 1)</label>
+      <ul>
+
+        <% allTodos.forEach(function (each) { %>
+          <li>
+          <label>
+            <input type="checkbox" name="todos" value="<%=each.id%>">
+            <%=each.title%>
+          </label>
+          </li>
+        <% }) %>
+
+      </ul>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+  <pre>
+    <%-allTodos %>
+  </pre>
+</div>
