@@ -21,7 +21,11 @@ app.use(ejsLayouts)
 
 app.set('view engine', 'ejs')
 
-app.use('/todos', todo)
+const todos = require('./routes/todo_router')
+app.use('/todos', todos)
+
+const page = require('./routes/page_router')
+app.use('/', page)
 
 app.get('/', (req, res) => {
   res.send('Vell, vell, vell. Vellcome to my app.')
