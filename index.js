@@ -7,7 +7,7 @@ const todo = require('./routes/todo_router')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
-// mongoose.connect('mongodb://localhost/myapp')
+mongoose.connect('mongodb://localhost/myapp')
 
 mongoose.Promise = global.Promise
 
@@ -21,7 +21,7 @@ app.use(ejsLayouts)
 
 app.set('view engine', 'ejs')
 
-// app.use('/todo', todo)
+app.use('/todos', todo)
 
 app.get('/', (req, res) => {
   res.send('Vell, vell, vell. Vellcome to my app.')
